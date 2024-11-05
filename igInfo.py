@@ -15,7 +15,6 @@ client = httpx.Client(
 )
 
 def scrape_user(username: str):
-    """Scrape Instagram user's data"""
     result = client.get(
         f"https://i.instagram.com/api/v1/users/web_profile_info/?username={username}",
     )
