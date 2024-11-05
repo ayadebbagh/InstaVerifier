@@ -1,3 +1,4 @@
+import kagglehub
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -11,9 +12,11 @@ from sklearn.utils.class_weight import compute_class_weight
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.model_selection import train_test_split, cross_val_score, GridSearchCV
 
+download = kagglehub.dataset_download("rezaunderfit/instagram-fake-and-real-accounts-dataset")
+path = download + "/final-v1.csv"
 
 #TODO: if not downloaded, download -> read from downloaded csv
-accountsDS = pd.read_csv('/Users/ayadebbagh/.cache/kagglehub/datasets/rezaunderfit/instagram-fake-and-real-accounts-dataset/versions/1/final-v1.csv')
+accountsDS = pd.read_csv(path)
 accountsDS = accountsDS.drop("has_channel", axis=1)
 accountsDS = accountsDS.drop("has_guides", axis=1)
 
